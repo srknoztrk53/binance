@@ -7,7 +7,7 @@ Provides a dynamic stop-loss that automatically adjusts as the price increases o
 
 **Clone the repository**
 ```
-git clone https://github.com/srknoztrk53/binance
+git clone https://github.com/srknoztrk53/binance.git
 ```
 
 **Install required libraries**
