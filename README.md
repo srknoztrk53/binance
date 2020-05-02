@@ -7,7 +7,7 @@ Provides a dynamic stop-loss that automatically adjusts as the price increases o
 
 **Clone the repository**
 ```
-git clone https://github.com/sf04/Binance-Trailing-Stop-Loss
+git clone https://github.com/srknoztrk53/binance
 ```
 
 **Install required libraries**
