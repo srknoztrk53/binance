@@ -30,24 +30,24 @@ class StopTrail():
         if self.type == "sell":
             if (price - self.stopsize) > self.stoploss:
                 self.stoploss = price - self.stopsize
-                print("Fiyat Yükseldi: Stop Loss %.8f Olarak Güncellendi." % self.stoploss)
+                print("Fiyat Yukseldi: Stop Loss %.8f Olarak Guncellendi." % self.stoploss)
             elif price <= self.stoploss:
                 self.running = False
                 amount = self.binance.get_balance(self.market.split("/")[0])
                 price = self.binance.get_price(self.market)
                 self.binance.sell(self.market, amount, price)
-                print("Satış Emri Tetiklendi | Fiyat: %.8f | Stop loss: %.8f" % (price, self.stoploss))
+                print("Satis Emri Tetiklendi | Fiyat: %.8f | Stop loss: %.8f" % (price, self.stoploss))
         elif self.type == "buy":
             if (price + self.stopsize) < self.stoploss:
                 self.stoploss = price + self.stopsize
-                print("Fiyat Düştü: Stop Loss %.8f Olarak Güncellendi." % self.stoploss)
+                print("Fiyat Dustu: Stop Loss %.8f Olarak Guncellendi." % self.stoploss)
             elif price >= self.stoploss:
                 self.running = False
                 balance = self.binance.get_balance(self.market.split("/")[1])
                 price = self.binance.get_price(self.market)
                 amount = (balance / price) * 0.999 # 0.10% maker/taker fee without BNB
                 self.binance.buy(self.market, amount, price)
-                print("Satın Alma Emri Tetiklendi | Fiyat: %.8f | Stop loss: %.8f" % (price, self.stoploss))
+                print("Satin Alma Emri Tetiklendi | Fiyat: %.8f | Stop loss: %.8f" % (price, self.stoploss))
 
     def print_status(self):
         last = self.binance.get_price(self.market)
@@ -55,8 +55,8 @@ class StopTrail():
         print("Komut Tipi   : %s" % self.type)
         print("Market       : %s" % self.market)
         print("Stop Loss    : %.8f" % self.stoploss)
-        print("Güncel Fiyat : %.8f" % last)
-        print("Stop Miktarı : %.8f" % self.stopsize)
+        print("Guncel Fiyat : %.8f" % last)
+        print("Stop Miktari : %.8f" % self.stopsize)
         print("---------------------")
 
     def run(self):
